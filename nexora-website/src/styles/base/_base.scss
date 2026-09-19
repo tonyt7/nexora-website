@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as *;
+
+body {
+  background: $color-white;
+  color: $color-navy-dark;
+  font-family: $font-primary;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  overflow: hidden;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: $container-width;
+  padding-inline: 1.5rem;
+  width: 100%;
+}

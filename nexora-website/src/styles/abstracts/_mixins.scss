@@ -1,0 +1,28 @@
+@use './breakpoints' as *;
+
+@mixin container {
+  margin-inline: auto;
+  max-width: $breakpoint-xxl;
+  padding-inline: 1.5rem;
+  width: 100%;
+
+  @media (min-width: $breakpoint-md) {
+    padding-inline: 2.5rem;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding-inline: 4rem;
+  }
+}
+
+@mixin section-spacing {
+  padding-block: 4rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding-block: 7rem;
+  }
+}
