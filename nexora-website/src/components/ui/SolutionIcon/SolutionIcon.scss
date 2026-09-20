@@ -1,0 +1,24 @@
+@use '../../../styles/abstracts/variables' as *;
+
+.solution-icon {
+  align-items: center;
+  background: $color-white;
+  box-shadow: 0 8px 20px rgb(0 43 82 / 12%);
+  color: $color-blue;
+  display: flex;
+  height: 58px;
+  justify-content: center;
+  margin-block-start: -29px;
+  position: relative;
+  transition:
+    background $transition-default,
+    color $transition-default,
+    transform $transition-default;
+  width: 58px;
+  z-index: 2;
+
+  svg {
+    height: 28px;
+    width: 28px;
+  }
+}

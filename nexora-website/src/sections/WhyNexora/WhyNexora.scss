@@ -1,0 +1,392 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.why-nexora {
+  background:
+    radial-gradient(
+      circle at 15% 30%,
+      rgb(0 86 166 / 22%) 0%,
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      $color-navy-dark 0%,
+      $color-navy 60%,
+      #00345f 100%
+    );
+  color: $color-white;
+  overflow: hidden;
+  padding-block: 7rem;
+  position: relative;
+
+  // Subtle glow toward the right edge.
+  &::after {
+    background: $color-cyan;
+    border-radius: 50%;
+    content: '';
+    filter: blur(140px);
+    height: 260px;
+    opacity: 0.05;
+    pointer-events: none;
+    position: absolute;
+    right: -100px;
+    top: 20%;
+    width: 260px;
+  }
+
+  // --------------------------------------------------
+  // Network decoration
+  // --------------------------------------------------
+
+  &__decoration {
+    height: 600px;
+    left: -120px;
+    opacity: 0.1;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+
+    svg {
+      height: 100%;
+      overflow: visible;
+      width: 100%;
+
+      path {
+        fill: none;
+        stroke: $color-cyan;
+        stroke-width: 1;
+      }
+
+      circle {
+        fill: $color-cyan;
+      }
+    }
+  }
+
+  // --------------------------------------------------
+  // Layout
+  // --------------------------------------------------
+
+  &__container {
+    display: grid;
+    gap: clamp(4rem, 7vw, 7rem);
+    grid-template-columns:
+      minmax(0, 0.75fr)
+      minmax(0, 1.25fr);
+    margin-inline: auto;
+    max-width: $container-width;
+    padding-inline: 1.5rem;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    @media (min-width: $breakpoint-md) {
+      padding-inline: 2.5rem;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      padding-inline: 4rem;
+    }
+  }
+
+  // --------------------------------------------------
+  // Intro
+  // --------------------------------------------------
+
+  &__intro {
+    align-self: start;
+    max-width: 500px;
+    position: sticky;
+    top: 3rem;
+  }
+
+  &__eyebrow {
+    align-items: center;
+    color: $color-cyan;
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: 700;
+    gap: 0.75rem;
+    letter-spacing: 0.14em;
+    margin-block-end: 1rem;
+    text-transform: uppercase;
+
+    &::before {
+      background: $color-cyan;
+      content: '';
+      height: 2px;
+      width: 30px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    letter-spacing: -0.035em;
+    line-height: 1.07;
+    margin-block-end: 1.75rem;
+
+    span {
+      color: $color-cyan;
+      display: block;
+    }
+  }
+
+  &__lead {
+    color: rgb(255 255 255 / 72%);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 470px;
+  }
+
+  // --------------------------------------------------
+  // Supporting statement
+  // --------------------------------------------------
+
+  &__statement {
+    align-items: flex-start;
+    display: flex;
+    gap: 1rem;
+    margin-block-start: 3rem;
+
+    p {
+      color: rgb(255 255 255 / 65%);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+
+      strong {
+        color: $color-white;
+        display: block;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__statement-line {
+    background: linear-gradient(
+      180deg,
+      $color-cyan,
+      rgb(0 174 239 / 15%)
+    );
+    flex: 0 0 auto;
+    height: 45px;
+    width: 2px;
+  }
+
+  // --------------------------------------------------
+  // Reasons
+  // --------------------------------------------------
+
+  &__reasons {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 0;
+  }
+
+  &__reason {
+    border-block-start: 1px solid rgb(255 255 255 / 14%);
+    min-height: 230px;
+    padding-block: 2rem;
+    position: relative;
+    transition:
+      background $transition-default,
+      padding-inline $transition-default;
+
+    // Slight breathing room between the two columns.
+    &:nth-child(even) {
+      padding-inline-start: 0.25rem;
+    }
+
+    &:hover {
+      background: rgb(255 255 255 / 3%);
+      padding-inline: 1rem;
+
+      .why-nexora__number {
+        color: $color-cyan;
+      }
+
+      .why-nexora__reason-line {
+        transform: scaleX(1);
+      }
+
+      h3 {
+        color: $color-cyan;
+      }
+    }
+
+    p {
+      color: rgb(255 255 255 / 66%);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0;
+      max-width: 340px;
+    }
+  }
+
+  &__reason-heading {
+    align-items: flex-start;
+    display: flex;
+    gap: 1rem;
+    margin-block-end: 1rem;
+
+    h3 {
+      color: $color-white;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      margin: 0;
+      text-transform: uppercase;
+      transition: color $transition-default;
+    }
+  }
+
+  &__number {
+    color: rgb(255 255 255 / 30%);
+    flex: 0 0 auto;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-block-start: 0.2rem;
+    transition: color $transition-default;
+  }
+
+  &__reason-line {
+    background: linear-gradient(
+      90deg,
+      $color-cyan,
+      transparent
+    );
+    height: 1px;
+    margin-block-end: 1.15rem;
+    transform: scaleX(0.18);
+    transform-origin: left;
+    transition: transform 450ms ease;
+    width: 100%;
+  }
+
+  // --------------------------------------------------
+  // Tablet
+  // --------------------------------------------------
+
+  @media (max-width: $breakpoint-lg) {
+    padding-block: 5rem;
+
+    &__container {
+      gap: 4rem;
+      grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+    }
+
+    &__reasons {
+      column-gap: 2rem;
+    }
+
+    &__reason {
+      min-height: 250px;
+    }
+
+    &__decoration {
+      left: -220px;
+    }
+  }
+
+  // --------------------------------------------------
+  // Mobile / portrait tablet
+  // --------------------------------------------------
+
+  @media (max-width: $breakpoint-md) {
+    padding-block: 4rem;
+
+    &__container {
+      gap: 3.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    &__intro {
+      max-width: 620px;
+      position: relative;
+      top: auto;
+    }
+
+    &__lead {
+      max-width: 580px;
+    }
+
+    &__statement {
+      margin-block-start: 2rem;
+    }
+
+    &__reasons {
+      column-gap: 2rem;
+    }
+
+    &__reason {
+      min-height: 230px;
+    }
+
+    &__decoration {
+      height: 500px;
+      left: auto;
+      opacity: 0.06;
+      right: -250px;
+      top: 120px;
+      transform: none;
+      width: 500px;
+    }
+  }
+
+  // --------------------------------------------------
+  // Small mobile
+  // --------------------------------------------------
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block: 3.5rem;
+
+    &__container {
+      gap: 3rem;
+      padding-inline: 1.25rem;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 9vw, 2.7rem);
+    }
+
+    &__lead {
+      font-size: 0.95rem;
+    }
+
+    &__reasons {
+      grid-template-columns: 1fr;
+    }
+
+    &__reason {
+      min-height: 0;
+      padding-block: 1.75rem;
+
+      &:nth-child(even) {
+        padding-inline-start: 0;
+      }
+
+      // Don't shift content horizontally on touch devices.
+      &:hover {
+        padding-inline: 0;
+      }
+
+      p {
+        max-width: 500px;
+      }
+    }
+
+    &__statement {
+      display: none;
+    }
+  }
+}
