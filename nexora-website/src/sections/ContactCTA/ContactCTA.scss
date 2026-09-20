@@ -1,0 +1,434 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.contact-cta {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgb(0 174 239 / 10%),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgb(0 86 166 / 16%),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      $color-navy 0%,
+      $color-navy-dark 100%
+    );
+  color: $color-white;
+  overflow: hidden;
+  padding-block-start: 7rem;
+  position: relative;
+
+  // Small cyan highlight at the section transition.
+  &::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-cyan,
+      transparent
+    );
+    content: '';
+    height: 1px;
+    left: 15%;
+    opacity: 0.55;
+    position: absolute;
+    right: 15%;
+    top: 0;
+  }
+
+  // --------------------------------------------------
+  // Decorative circuit mark
+  // --------------------------------------------------
+
+  &__decoration {
+    height: 620px;
+    opacity: 0.075;
+    pointer-events: none;
+    position: absolute;
+    right: -120px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-6deg);
+    width: 620px;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__hex,
+  &__circuit {
+    stroke: $color-cyan;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__hex {
+    stroke-width: 18;
+  }
+
+  &__circuit {
+    stroke-width: 12;
+  }
+
+  &__node {
+    fill: $color-navy-dark;
+    stroke: $color-cyan;
+    stroke-width: 8;
+  }
+
+  // --------------------------------------------------
+  // Main layout
+  // --------------------------------------------------
+
+  &__container {
+    align-items: center;
+    display: grid;
+    gap: clamp(4rem, 8vw, 8rem);
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(360px, 0.75fr);
+    margin-inline: auto;
+    max-width: $container-width;
+    padding-block-end: 6rem;
+    padding-inline: 1.5rem;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+
+    @media (min-width: $breakpoint-md) {
+      padding-inline: 2.5rem;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      padding-inline: 4rem;
+    }
+  }
+
+  // --------------------------------------------------
+  // Copy
+  // --------------------------------------------------
+
+  &__content {
+    max-width: 720px;
+  }
+
+  &__eyebrow {
+    align-items: center;
+    color: $color-cyan;
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: 700;
+    gap: 0.75rem;
+    letter-spacing: 0.14em;
+    margin-block-end: 1rem;
+    text-transform: uppercase;
+
+    &::before {
+      background: $color-cyan;
+      content: '';
+      height: 2px;
+      width: 30px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    margin-block-end: 1.5rem;
+    max-width: 700px;
+
+    span {
+      color: $color-cyan;
+      display: block;
+    }
+  }
+
+  &__description {
+    color: rgb(255 255 255 / 68%);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-block-end: 2.25rem;
+    max-width: 650px;
+  }
+
+  // --------------------------------------------------
+  // CTA button
+  // --------------------------------------------------
+
+  &__button {
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      $color-blue,
+      $color-cyan
+    );
+    border-radius: 999px;
+    box-shadow:
+      0 10px 30px rgb(0 174 239 / 16%);
+    color: $color-white;
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 700;
+    gap: 1rem;
+    letter-spacing: 0.03em;
+    padding: 0.95rem 1.5rem;
+    text-decoration: none;
+    transition:
+      background $transition-default,
+      box-shadow $transition-default,
+      color $transition-default;
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        $color-white,
+        #dff7ff
+      );
+      box-shadow:
+        0 12px 30px rgb(0 0 0 / 18%);
+      color: $color-blue;
+
+      .contact-cta__button-arrow {
+        transform: translateX(4px);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-cyan;
+      outline-offset: 4px;
+    }
+  }
+
+  &__button-arrow {
+    font-size: 1rem;
+    transition: transform $transition-fast;
+  }
+
+  // --------------------------------------------------
+  // Contact details
+  // --------------------------------------------------
+
+  &__details {
+    border-block-start: 1px solid rgb(255 255 255 / 16%);
+  }
+
+  &__detail {
+    align-items: center;
+    border-block-end: 1px solid rgb(255 255 255 / 16%);
+    color: $color-white;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 32px minmax(0, 1fr) 30px;
+    min-height: 105px;
+    padding-block: 1.25rem;
+    text-decoration: none;
+    transition:
+      border-color $transition-default,
+      padding-inline $transition-default;
+
+    &:is(a):hover {
+      border-color: rgb(0 174 239 / 55%);
+      padding-inline: 0.75rem;
+
+      .contact-cta__detail-number,
+      .contact-cta__detail-label,
+      .contact-cta__detail-arrow {
+        color: $color-cyan;
+      }
+
+      .contact-cta__detail-arrow {
+        transform: translate(3px, -3px);
+      }
+    }
+
+  }
+
+  &__detail-number {
+    color: rgb(255 255 255 / 32%);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    transition: color $transition-default;
+  }
+
+  &__detail-content {
+    min-width: 0;
+
+    strong {
+      color: $color-white;
+      display: block;
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+  }
+
+  &__detail-label {
+    color: rgb(255 255 255 / 50%);
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-block-end: 0.4rem;
+    text-transform: uppercase;
+    transition: color $transition-default;
+  }
+
+  &__detail-arrow {
+    color: rgb(255 255 255 / 45%);
+    font-size: 1.15rem;
+    justify-self: end;
+    transition:
+      color $transition-default,
+      transform $transition-default;
+  }
+
+  &__address {
+    color: rgb(255 255 255 / 48%);
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-block-start: 0.25rem;
+  }
+
+  // --------------------------------------------------
+  // Bottom service strip
+  // --------------------------------------------------
+
+  &__services {
+    border-block-start: 1px solid rgb(255 255 255 / 10%);
+    position: relative;
+    z-index: 2;
+  }
+
+  &__services-track {
+    align-items: center;
+    display: flex;
+    gap: clamp(1rem, 2.5vw, 2.5rem);
+    justify-content: center;
+    margin-inline: auto;
+    max-width: $container-width;
+    min-height: 72px;
+    padding-inline: 1.5rem;
+
+    span {
+      color: rgb(255 255 255 / 42%);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    i {
+      background: $color-cyan;
+      border-radius: 50%;
+      box-shadow: 0 0 7px rgb(0 174 239 / 40%);
+      flex: 0 0 auto;
+      height: 4px;
+      width: 4px;
+    }
+  }
+
+  // --------------------------------------------------
+  // Responsive
+  // --------------------------------------------------
+
+  @media (max-width: $breakpoint-lg) {
+    padding-block-start: 5rem;
+
+    &__container {
+      gap: 4rem;
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.75fr);
+      padding-block-end: 5rem;
+    }
+
+    &__decoration {
+      height: 500px;
+      right: -170px;
+      width: 500px;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding-block-start: 4rem;
+
+    &__container {
+      gap: 4rem;
+      grid-template-columns: 1fr;
+      padding-block-end: 4rem;
+    }
+
+    &__content {
+      max-width: 650px;
+    }
+
+    &__details {
+      max-width: 650px;
+      width: 100%;
+    }
+
+    &__decoration {
+      height: 480px;
+      opacity: 0.05;
+      right: -220px;
+      top: 30%;
+      width: 480px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block-start: 3.5rem;
+
+    &__container {
+      gap: 3.5rem;
+      padding-inline: 1.25rem;
+    }
+
+    &__title {
+      font-size: clamp(2.4rem, 11vw, 3.3rem);
+    }
+
+    &__description {
+      font-size: 0.92rem;
+    }
+
+    &__detail {
+      min-height: 95px;
+    }
+
+    &__services {
+      overflow: hidden;
+    }
+
+    &__services-track {
+      gap: 0.8rem;
+      justify-content: flex-start;
+      min-width: max-content;
+      padding-inline: 1.25rem;
+
+      span {
+        font-size: 0.58rem;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-cta {
+    &__button,
+    &__button-arrow,
+    &__detail,
+    &__detail-arrow {
+      transition: none !important;
+    }
+  }
+}

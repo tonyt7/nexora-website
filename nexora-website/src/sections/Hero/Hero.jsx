@@ -6,7 +6,7 @@ import './Hero.scss';
 
 function Hero() {
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="hero">
         <picture className="hero__media" aria-hidden="true">
     <source
       media="(max-width: 768px)"

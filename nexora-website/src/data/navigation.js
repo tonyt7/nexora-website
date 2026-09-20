@@ -1,7 +1,7 @@
 export const navigation = [
   {
     label: 'Home',
-    href: '/#home',
+    href: '/',
   },
   {
     label: 'About Us',
@@ -11,9 +11,8 @@ export const navigation = [
     label: 'Solutions',
     href: '/#solutions',
   },
-  {
-    label: 'Projects',
-    href: '/#projects',
+  { label: 'Our Approach',
+    href: '/#approach' 
   },
   {
     label: 'Industries',

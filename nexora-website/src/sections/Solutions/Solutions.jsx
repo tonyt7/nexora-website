@@ -1,4 +1,5 @@
 import { solutions } from '../../data/solutions';
+import { Link } from 'react-router-dom';
 import SolutionIcon from '../../components/ui/SolutionIcon/SolutionIcon';
 
 import './Solutions.scss';
@@ -66,19 +67,19 @@ function Solutions() {
       ))}
     </ul>
 
-    <a
-      className="solutions__link"
-      href={`/contact?solution=${solution.id}`}
-    >
-      <span>Discuss this solution</span>
+<Link
+  className="solutions__link"
+  to={`/contact?solution=${solution.id}#contact-form`}
+>
+  <span>Discuss this solution</span>
 
-      <span
-        className="solutions__link-arrow"
-        aria-hidden="true"
-      >
-        →
-      </span>
-    </a>
+  <span
+    className="solutions__link-arrow"
+    aria-hidden="true"
+  >
+    →
+  </span>
+</Link>
   </div>
 </article>
           ))}
