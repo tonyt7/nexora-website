@@ -9,7 +9,7 @@ const companyLinks = [
   { label: 'Solutions', href: '/#solutions' },
   { label: 'Our Approach', href: '/#approach' },
   { label: 'Industries', href: '/#industries' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Contact Us', href: '/#contact' },
 ];
 
 const solutionLinks = [
@@ -314,8 +314,8 @@ function Footer() {
                       Email
                     </span>
 
-                    <a href="mailto:siby@nexoracn.com">
-                      siby@nexoracn.com
+                    <a href="mailto:info@nexoracn.com">
+                      info@nexoracn.com
                     </a>
                   </div>
 
@@ -349,17 +349,6 @@ function Footer() {
                     </a>
                   </div>
                 </div>
-
-                <Link
-                  className="footer__contact-link"
-                  to="/contact"
-                >
-                  Contact Nexora
-
-                  <span aria-hidden="true">
-                    →
-                  </span>
-                </Link>
               </div>
             </div>
           </div>

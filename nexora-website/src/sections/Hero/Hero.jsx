@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import heroDesktop from '../../assets/images/hero/nexora-hero-desktop.webp';
 import heroMobile from '../../assets/images/hero/nexora-hero-mobile.webp';
 import './Hero.scss';
@@ -57,9 +55,9 @@ function Hero() {
               <span>Explore Our Solutions</span>
             </a>
 
-            <Link
+            <a
               className="hero__secondary-link"
-              to="/contact"
+              href="#contact"
             >
               <span>Talk to Nexora</span>
               <span
@@ -68,7 +66,7 @@ function Hero() {
               >
                 →
               </span>
-            </Link>
+            </a>
           </div>
 
         </div>

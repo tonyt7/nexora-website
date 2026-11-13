@@ -1,10 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 import ScrollToTop from './components/ui/ScrollToTop/ScrollToTop';
 import Home from './pages/Home/Home';
-import Contact from './pages/Contact/Contact';
+//import Contact from './pages/Contact/Contact';
 
 function App() {
   return (
@@ -14,7 +14,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Navigate to="/#contact" replace />}
+          />
         </Routes>
       </main>
 

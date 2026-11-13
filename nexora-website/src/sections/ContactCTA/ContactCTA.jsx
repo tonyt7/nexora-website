@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import './ContactCTA.scss';
 
 function ContactCTA() {
@@ -140,25 +138,12 @@ function ContactCTA() {
             deliver the right solution.
           </p>
 
-          <Link
-            className="contact-cta__button"
-            to="/contact"
-          >
-            <span>Request a Consultation</span>
-
-            <span
-              className="contact-cta__button-arrow"
-              aria-hidden="true"
-            >
-              →
-            </span>
-          </Link>
         </div>
 
         <div className="contact-cta__details">
           <a
             className="contact-cta__detail"
-            href="mailto:siby@nexoracn.com"
+            href="mailto:info@nexoracn.com"
           >
             <span className="contact-cta__detail-number">
               01
@@ -169,7 +154,7 @@ function ContactCTA() {
                 Email Nexora
               </span>
 
-              <strong>siby@nexoracn.com</strong>
+              <strong>info@nexoracn.com</strong>
             </span>
 
             <span

@@ -99,7 +99,7 @@ function Header() {
           {/* Contact information */}
           <div className="site-header__contact">
             <a
-              href="mailto:siby@nexoracn.com"
+              href="mailto:info@nexoracn.com"
               className="site-header__contact-link"
             >
               <span
@@ -110,7 +110,7 @@ function Header() {
               </span>
 
               <span>
-                siby@nexoracn.com
+                info@nexoracn.com
               </span>
             </a>
 
@@ -202,15 +202,14 @@ function Header() {
                 );
               })}
             </ul>
-
             {/* CTA */}
-            <Link
-              to="/contact"
-              className="site-header__cta"
-              onClick={() => {
-                setMenuOpen(false);
-              }}
-            >
+<a
+  href="/#contact"
+  className="site-header__cta"
+  onClick={(event) => {
+    handleNavigation(event, '/#contact');
+  }}
+>
               <span>
                 Request a Consultation
               </span>
@@ -218,7 +217,7 @@ function Header() {
               <span aria-hidden="true">
                 →
               </span>
-            </Link>
+            </a>
           </nav>
         </div>
       </div>
